@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/ubuntu-light.woff") format('woff');
+}
+html, body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Ubuntu", "Monaco", "WenQuanYi Micro Hei", "Microsoft YaHei" !important;
+}
+.am-form-block {
+  width: 100%;
+}
+.am-g-fixed {
+  max-width: 1600px;
+}
+.page-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#flash-container {
+  display: none;
+  height: 50px;
+  background: none repeat scroll 0% 0% #0e90d2;
+  text-align: center;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 16px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 100;
+  width: 100%;
+}
+#flash-container #flash-alert {
+  text-shadow: 0px 1px 1px #CCC;
+  padding: 13.5px;
+}
+.am-form tr th {
+  vertical-align: middle;
+}

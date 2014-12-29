@@ -1,0 +1,33 @@
+<div class="am-g am-g-fixed">
+  <div id="new-task" class="page-section">
+    <h1>Remote Resources</h1>
+    <hr>
+    <form class="am-form am-form-inline" action="#" method="POST">
+      <div class="am-u-sm-10">
+        <div class="am-form-group am-form-icon am-form-block">
+          <i class="am-icon-link"></i>
+          <input name="link" type="text" class="am-form-field" autocomplete="off" placeholder="Resource Link">
+          <%= Rack::Csrf.tag(env) %>
+        </div>
+      </div>
+      <div class="am-u-sm-2">
+        <button type="submit" class="am-btn am-btn-success am-btn-block">Download</button>
+      </div>
+    </form>
+  </div>
+  <div id="show-task" class="page-section">
+    <h1>Tasks</h1>
+    <hr>
+    <div id="tasks">
+      <center><i class="am-icon-refresh am-icon-spin"></i> Fetching...</center>
+    </div>
+  </div>
+</div>
+<script type="text/coffeescript">
+<% if defined? msg %>
+showmsg "<%=msg%>"
+<% end %>
+fetchTasks()
+$ ->
+  setInterval fetchTasks, 3000
+</script>

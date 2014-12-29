@@ -1,0 +1,36 @@
+<table class="am-table am-table-bordered am-table-radius am-table-striped">
+  <thead>
+    <tr>
+      <th width="7%">Task ID</th>
+      <th width="28%">Remote URI</th>
+      <th width="15%">Download Link</th>
+      <th width="26%">Status</th>
+      <th width="17%">Start Time</th>
+      <th width="7%">Operation</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% tasks.each do |task| %>
+    <% status = ARIA2.query_status(task.gid) %>
+    <tr>
+      <th><%= task.id %></th>
+      <th><%= h task.uri %></th>
+      <th><a href="/downloads/<%= u task.filename %>"><%= h task.filename %></a></th>
+      <th>
+        <div class="am-progress am-progress-striped">
+          <div class="am-progress-bar am-progress-bar-secondary" style="width: <%= status['progress'] * 100 %>%">
+            <%= sprintf("%.1f", status['progress'] * 100) %>%
+          </div>
+        </div>
+      </th>
+      <th>
+        <%= task.created_at %>
+      </th>
+      <th>
+        <i>
+        </i>
+      </th>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

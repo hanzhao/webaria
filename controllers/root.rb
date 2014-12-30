@@ -17,13 +17,13 @@ post '/' do
     gid = ARIA2.download(uri, "#{SINATRA_ROOT}/public/downloads/#{filename}")
     status = 0
     msg = 'Task has been added successfully.'
+    Task.create(uri:      uri,
+                filename: filename,
+                gid:      gid,
+                status:   status)
   rescue
     status = -1
     msg = 'Invalid resource url.'
   end
-  Task.create(uri:      uri,
-              filename: filename,
-              gid:      gid,
-              status:   status)
   erb :index, locals: { msg: msg }
 end

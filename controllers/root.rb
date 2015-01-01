@@ -5,7 +5,7 @@ get '/' do
 end
 
 post '/' do
-  uri = params['link'].chop
+  uri = params['link'].gsub(/\s+/, '')
   unless uri.start_with?('http://') || uri.start_with?('ftp://') || uri.start_with?('magnet:')
     uri = "http://#{uri}"
   end

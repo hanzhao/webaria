@@ -9,7 +9,7 @@ post '/' do
   unless uri.start_with?('http://') || uri.start_with?('ftp://') || uri.start_with?('magnet:')
     uri = "http://#{uri}"
   end
-  filename = "#{Time.now.to_i}_#{File.basename(uri)}"
+  filename = "#{Time.now.to_i - 1420134882}_#{File.basename(uri)}"
   status = -1
   gid ||= nil
   msg ||= nil

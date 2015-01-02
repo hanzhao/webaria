@@ -13,20 +13,20 @@
   <% tasks.each do |task| %>
     <% status = ARIA2.query_status(task.gid) %>
     <tr>
-      <th width="7%"><%= task.id %></th>
-      <th width="28%"><%= h task.uri %></th>
-      <th width="15%"><a href="/downloads/<%= u task.filename %>"><%= h task.filename %></a></th>
-      <th width="26%">
+      <th><%= task.id %></th>
+      <th><a href="<%= h task.uri %>"><%= shorten h task.uri %></a></th>
+      <th><a href="/downloads/<%= u task.filename %>"><%= h task.filename %></a></th>
+      <th>
         <div class="am-progress am-progress-striped">
           <div class="am-progress-bar am-progress-bar-secondary" style="width: <%= status['progress'] * 100 %>%">
             <%= sprintf("%.1f", status['progress'] * 100) %>%
           </div>
         </div>
       </th>
-      <th width="17%">
+      <th>
         <%= task.created_at %>
       </th>
-      <th width="7%">
+      <th>
         <i>
         </i>
       </th>
